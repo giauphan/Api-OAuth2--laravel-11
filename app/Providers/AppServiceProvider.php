@@ -23,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
         Passport::hashClientSecrets();
         Passport::ignoreRoutes();
         Passport::enablePasswordGrant();
-        Passport::tokensExpireIn(now()->addHour());
+        Passport::tokensExpireIn(now()->addHours(6));
+        Passport::refreshTokensExpireIn(now()->addDays(30));
+        Passport::personalAccessTokensExpireIn(now()->addMonths(6));
     }
 }
